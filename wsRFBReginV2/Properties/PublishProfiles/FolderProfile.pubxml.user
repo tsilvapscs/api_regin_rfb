@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\vtham\Documents\PSCS\sourcesProgramasGit\WsRFBReginV2\WsRFBReginV2\bin\app.publish\</_PublishTargetUrl>
+    <History>True|2023-04-04T11:22:30.2439893Z;True|2023-04-03T16:40:38.1759474-03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>04/04/2023 08:24:20</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>04/04/2023 08:24:20</publishTime>
+    </File>
+    <File Include="bin/AspNet.ScriptManager.bootstrap.dll">
+      <publishTime>03/15/2019 11:59:54</publishTime>
+    </File>
+    <File Include="bin/AspNet.ScriptManager.jQuery.dll">
+      <publishTime>05/16/2019 12:33:30</publishTime>
+    </File>
+    <File Include="bin/ControleDeAcessoPorIP.dll">
+      <publishTime>04/01/2021 16:32:20</publishTime>
+    </File>
+    <File Include="bin/ControleDeAcessoPorIP.pdb">
+      <publishTime>04/01/2021 16:32:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
+      <publishTime>07/30/2013 16:57:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Web.Optimization.WebForms.dll">
+      <publishTime>02/11/2014 16:26:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ScriptManager.MSAjax.dll">
+      <publishTime>09/06/2013 11:20:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ScriptManager.WebForms.dll">
+      <publishTime>09/06/2013 11:20:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>09/23/2011 18:45:50</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/22/2019 01:06:16</publishTime>
+    </File>
+    <File Include="bin/psc.Cryptography.dll">
+      <publishTime>07/17/2009 14:52:20</publishTime>
+    </File>
+    <File Include="bin/psc.Cryptography.pdb">
+      <publishTime>07/17/2009 14:52:20</publishTime>
+    </File>
+    <File Include="bin/psc.Framework.dll">
+      <publishTime>01/06/2014 17:20:36</publishTime>
+    </File>
+    <File Include="bin/psc.Framework.pdb">
+      <publishTime>06/07/2013 17:26:48</publishTime>
+    </File>
+    <File Include="bin/psc.Ruc.Tablelas.DAL.dll">
+      <publishTime>03/18/2022 14:17:56</publishTime>
+    </File>
+    <File Include="bin/psc.Ruc.Tablelas.DAL.dll.config">
+      <publishTime>11/30/2020 11:07:28</publishTime>
+    </File>
+    <File Include="bin/psc.Ruc.Tablelas.DAL.pdb">
+      <publishTime>03/18/2022 14:17:56</publishTime>
+    </File>
+    <File Include="bin/psc.WebServices.dll">
+      <publishTime>05/19/2022 11:04:47</publishTime>
+    </File>
+    <File Include="bin/psc.WebServices.dll.config">
+      <publishTime>02/15/2022 17:43:38</publishTime>
+    </File>
+    <File Include="bin/psc.WebServices.pdb">
+      <publishTime>02/15/2022 18:27:34</publishTime>
+    </File>
+    <File Include="bin/pt-br/Microsoft.AspNet.FriendlyUrls.resources.dll">
+      <publishTime>07/30/2013 17:01:52</publishTime>
+    </File>
+    <File Include="bin/pt-br/System.Net.Http.Formatting.resources.dll">
+      <publishTime>11/28/2018 14:00:54</publishTime>
+    </File>
+    <File Include="bin/pt-br/System.Web.Http.resources.dll">
+      <publishTime>11/28/2018 14:01:22</publishTime>
+    </File>
+    <File Include="bin/pt-br/System.Web.Http.WebHost.resources.dll">
+      <publishTime>11/28/2018 14:03:12</publishTime>
+    </File>
+    <File Include="bin/pt-br/System.Web.Optimization.resources.dll">
+      <publishTime>02/11/2014 16:28:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>02/19/2015 18:10:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>11/28/2018 14:00:36</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>02/19/2015 18:10:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>11/28/2018 14:02:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 16:26:04</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 14:57:34</publishTime>
+    </File>
+    <File Include="bin/WsRFBReginV2.dll">
+      <publishTime>04/04/2023 08:23:58</publishTime>
+    </File>
+    <File Include="bin/WsRFBReginV2.pdb">
+      <publishTime>04/04/2023 08:23:58</publishTime>
+    </File>
+    <File Include="bin/WsRFBReginV2.XmlSerializers.dll">
+      <publishTime>03/04/2023 16:40:34</publishTime>
+    </File>
+    <File Include="Bundle.config">
+      <publishTime>03/27/2023 14:19:28</publishTime>
+    </File>
+    <File Include="ClientDocumento.asmx">
+      <publishTime>04/03/2023 16:21:46</publishTime>
+    </File>
+    <File Include="Connected Services/RJ_Servico_MEI/WsRFBReginV2.RJ_Servico_MEI.ResponseMEI.datasource">
+      <publishTime>04/03/2023 15:40:53</publishTime>
+    </File>
+    <File Include="Connected Services/RJ_Servico_S99_V2/WsRFBReginV2.RJ_Servico_S99_V2.Resultado.datasource">
+      <publishTime>04/03/2023 15:57:13</publishTime>
+    </File>
+    <File Include="Contact.aspx">
+      <publishTime>03/28/2023 10:33:57</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>03/27/2023 14:19:28</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>03/27/2023 14:19:28</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>03/27/2023 14:19:28</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/27/2023 14:19:40</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/27/2023 14:19:39</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/27/2023 14:19:39</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>03/27/2023 14:19:39</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>03/28/2023 11:06:36</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>04/04/2023 08:24:01</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>03/27/2023 14:19:39</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>03/27/2023 14:19:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.js">
+      <publishTime>03/27/2023 14:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.min.js">
+      <publishTime>03/27/2023 14:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.min.map">
+      <publishTime>03/27/2023 14:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.slim.js">
+      <publishTime>03/27/2023 14:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.slim.min.js">
+      <publishTime>03/27/2023 14:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.slim.min.map">
+      <publishTime>03/27/2023 14:19:34</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>03/27/2023 14:19:38</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/DetailsView.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/Focus.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/GridView.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/Menu.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MenuStandards.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjax.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxApplicationServices.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxComponentModel.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxCore.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxGlobalization.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxHistory.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxNetwork.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxSerialization.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxTimer.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxWebForms.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/MSAjax/MicrosoftAjaxWebServices.js">
+      <publishTime>03/27/2023 14:19:42</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/SmartNav.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/TreeView.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/WebForms.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/WebParts.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Scripts/WebForms/WebUIValidation.js">
+      <publishTime>03/27/2023 14:19:43</publishTime>
+    </File>
+    <File Include="Service0506.asmx">
+      <publishTime>04/03/2023 16:23:38</publishTime>
+    </File>
+    <File Include="Service35.asmx">
+      <publishTime>04/03/2023 16:25:28</publishTime>
+    </File>
+    <File Include="ServiceConsultaS99.asmx">
+      <publishTime>04/03/2023 10:46:04</publishTime>
+    </File>
+    <File Include="ServiceReginRFB.asmx">
+      <publishTime>04/03/2023 10:35:19</publishTime>
+    </File>
+    <File Include="ServiceReginS13.asmx">
+      <publishTime>04/03/2023 16:29:20</publishTime>
+    </File>
+    <File Include="ServiceReginS24.asmx">
+      <publishTime>04/03/2023 16:30:07</publishTime>
+    </File>
+    <File Include="ServiceViabilidade.asmx">
+      <publishTime>04/03/2023 16:30:51</publishTime>
+    </File>
+    <File Include="ServicosConsultas.asmx">
+      <publishTime>04/03/2023 16:32:09</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Site.Mobile.Master">
+      <publishTime>03/27/2023 14:19:44</publishTime>
+    </File>
+    <File Include="ViewSwitcher.ascx">
+      <publishTime>03/27/2023 14:19:44</publishTime>
+    </File>
+    <File Include="Web References/RJ_ServiceEnvS01/DadosUsuario.datasource">
+      <publishTime>04/03/2023 15:52:50</publishTime>
+    </File>
+    <File Include="Web References/RJ_ServiceEnvS01/RespostaBalcaoUnico.datasource">
+      <publishTime>04/03/2023 15:52:50</publishTime>
+    </File>
+    <File Include="Web References/RJ_ServiceEnvS01/Resultado.datasource">
+      <publishTime>04/03/2023 15:52:49</publishTime>
+    </File>
+    <File Include="Web References/RJ_ServiceEnvS01/RetornoUsuario.datasource">
+      <publishTime>04/03/2023 15:52:50</publishTime>
+    </File>
+    <File Include="Web References/RJ_Servico_S99/DadosUsuario.datasource">
+      <publishTime>04/03/2023 15:55:45</publishTime>
+    </File>
+    <File Include="Web References/RJ_Servico_S99/Reference.map">
+      <publishTime>04/03/2023 15:55:40</publishTime>
+    </File>
+    <File Include="Web References/RJ_Servico_S99/RespostaBalcaoUnico.datasource">
+      <publishTime>04/03/2023 15:55:45</publishTime>
+    </File>
+    <File Include="Web References/RJ_Servico_S99/Resultado.datasource">
+      <publishTime>04/03/2023 15:55:45</publishTime>
+    </File>
+    <File Include="Web References/RJ_Servico_S99/RetornoUsuario.datasource">
+      <publishTime>04/03/2023 15:55:45</publishTime>
+    </File>
+    <File Include="Web References/WsServices01RFB/processarViabilidadeResponse.datasource">
+      <publishTime>03/27/2023 14:59:21</publishTime>
+    </File>
+    <File Include="Web References/WsServices01RFB/Reference.map">
+      <publishTime>03/27/2023 14:59:19</publishTime>
+    </File>
+    <File Include="Web References/WsServices02RFB/alterarStatusViabilidadeResponse.datasource">
+      <publishTime>03/28/2023 09:57:36</publishTime>
+    </File>
+    <File Include="Web References/WsServices02RFB/Reference.map">
+      <publishTime>03/28/2023 09:57:32</publishTime>
+    </File>
+    <File Include="Web References/WsServices04RFB/Reference.map">
+      <publishTime>03/27/2023 15:01:10</publishTime>
+    </File>
+    <File Include="Web References/WsServices04RFB/ws04Response.datasource">
+      <publishTime>03/27/2023 15:01:10</publishTime>
+    </File>
+    <File Include="Web References/WsServices05RFB/entregaDocumentosResponse.datasource">
+      <publishTime>03/27/2023 15:06:07</publishTime>
+    </File>
+    <File Include="Web References/WsServices05RFB/Reference.map">
+      <publishTime>03/27/2023 15:06:06</publishTime>
+    </File>
+    <File Include="Web References/WsServices06RFB/processarComunicacaoDeferIndeferResponse.datasource">
+      <publishTime>03/27/2023 15:07:15</publishTime>
+    </File>
+    <File Include="Web References/WsServices06RFB/Reference.map">
+      <publishTime>03/27/2023 15:07:14</publishTime>
+    </File>
+    <File Include="Web References/WsServices07RFB/Reference.map">
+      <publishTime>03/27/2023 15:08:14</publishTime>
+    </File>
+    <File Include="Web References/WsServices07RFB/serviceResponse.datasource">
+      <publishTime>03/27/2023 15:08:15</publishTime>
+    </File>
+    <File Include="Web References/WsServices08RFB/Reference.map">
+      <publishTime>03/27/2023 15:09:08</publishTime>
+    </File>
+    <File Include="Web References/WsServices08RFB/serviceResponse.datasource">
+      <publishTime>03/27/2023 15:09:09</publishTime>
+    </File>
+    <File Include="Web References/WsServices09RFB/consultaCPFResponse.datasource">
+      <publishTime>03/27/2023 15:10:15</publishTime>
+    </File>
+    <File Include="Web References/WsServices09RFB/Reference.map">
+      <publishTime>03/27/2023 15:10:13</publishTime>
+    </File>
+    <File Include="Web References/WsServices11RFB/consultaCNPJResponse.datasource">
+      <publishTime>03/27/2023 15:10:57</publishTime>
+    </File>
+    <File Include="Web References/WsServices11RFB/Reference.map">
+      <publishTime>03/27/2023 15:10:55</publishTime>
+    </File>
+    <File Include="Web References/WsServices13RFB/Reference.map">
+      <publishTime>03/28/2023 09:13:26</publishTime>
+    </File>
+    <File Include="Web References/WsServices13RFB/ws13Response.datasource">
+      <publishTime>03/28/2023 09:13:30</publishTime>
+    </File>
+    <File Include="Web References/WsServices15RFB/Reference.map">
+      <publishTime>03/28/2023 09:14:01</publishTime>
+    </File>
+    <File Include="Web References/WsServices15RFB/serviceResponse.datasource">
+      <publishTime>03/28/2023 09:14:02</publishTime>
+    </File>
+    <File Include="Web References/WsServices17RFB/Reference.map">
+      <publishTime>03/28/2023 09:55:22</publishTime>
+    </File>
+    <File Include="Web References/WsServices17RFB/serviceResponse.datasource">
+      <publishTime>03/28/2023 09:55:26</publishTime>
+    </File>
+    <File Include="Web References/WsServices22RFB/comunicarCancelamentoSolicitacaoResponse.datasource">
+      <publishTime>03/28/2023 09:46:09</publishTime>
+    </File>
+    <File Include="Web References/WsServices22RFB/Reference.map">
+      <publishTime>03/28/2023 09:46:05</publishTime>
+    </File>
+    <File Include="Web References/WsServices23RFB/Reference.map">
+      <publishTime>03/28/2023 09:35:17</publishTime>
+    </File>
+    <File Include="Web References/WsServices23RFB/ws23Response.datasource">
+      <publishTime>03/28/2023 09:35:19</publishTime>
+    </File>
+    <File Include="Web References/WsServices24RFB/Reference.map">
+      <publishTime>03/28/2023 09:36:17</publishTime>
+    </File>
+    <File Include="Web References/WsServices24RFB/ws24Response.datasource">
+      <publishTime>03/28/2023 09:36:18</publishTime>
+    </File>
+    <File Include="Web References/WsServices35RFB/Reference.map">
+      <publishTime>03/28/2023 09:36:53</publishTime>
+    </File>
+    <File Include="Web References/WsServices35RFB/serviceResponse.datasource">
+      <publishTime>03/28/2023 09:36:55</publishTime>
+    </File>
+    <File Include="Web References/WsServices50RFB/Reference.map">
+      <publishTime>04/03/2023 15:46:41</publishTime>
+    </File>
+    <File Include="Web References/WsServices50RFB/s50Response.datasource">
+      <publishTime>04/03/2023 15:46:45</publishTime>
+    </File>
+    <File Include="Web References/WsServices53RFB/Reference.map">
+      <publishTime>03/28/2023 09:38:12</publishTime>
+    </File>
+    <File Include="Web References/WsServices53RFB/serviceResponse.datasource">
+      <publishTime>03/28/2023 09:38:14</publishTime>
+    </File>
+    <File Include="Web References/WsServicesReginRFB/Reference.map">
+      <publishTime>03/28/2023 09:40:22</publishTime>
+    </File>
+    <File Include="Web References/WsServicesReginRFB/Retorno.datasource">
+      <publishTime>03/28/2023 09:40:25</publishTime>
+    </File>
+    <File Include="Web References/WsServicesReginRFB/RetornoBasico.datasource">
+      <publishTime>03/28/2023 09:40:25</publishTime>
+    </File>
+    <File Include="Web References/WsServicesReginRFB/RetornoS01.datasource">
+      <publishTime>03/28/2023 09:40:25</publishTime>
+    </File>
+    <File Include="Web References/WsServicesReginRFB/RetornoS53.datasource">
+      <publishTime>03/28/2023 09:40:25</publishTime>
+    </File>
+    <File Include="Web References/WsServicesReginRFB/RetornoV2.datasource">
+      <publishTime>03/28/2023 09:40:25</publishTime>
+    </File>
+    <File Include="Web References/WsServicosConsulta/Reference.map">
+      <publishTime>04/03/2023 11:52:37</publishTime>
+    </File>
+    <File Include="Web References/WsServicosConsulta/Retorno.datasource">
+      <publishTime>04/03/2023 11:52:41</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/04/2023 08:24:00</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

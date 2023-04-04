@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://redesim.serpro.gov.br/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="ws04" targetNamespace="http://redesim.serpro.gov.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://redesim.serpro.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="mensagemInformativa" type="tns:mensagem" />
+      <xs:element name="ws04Request" type="tns:ws04Request" />
+      <xs:element name="ws04Response" type="tns:ws04Response" />
+      <xs:element name="wsFault" type="tns:wsFault" />
+      <xs:complexType name="ws04Request">
+        <xs:sequence>
+          <xs:element name="codServico">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="[F|S]{1}04" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="versao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="6" />
+                <xs:pattern value="\d{6}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="reciboSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="identificacaoSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="protocolo">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="13" />
+                <xs:pattern value="[a-zA-Z]{3}\d{10}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="protocoloOcorrencia">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="\d{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="usoRFB">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="64" />
+                <xs:pattern value="(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)(JC|CC|IE)[A-Za-z0-9]*" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="resultadoValidacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="(01|02|03)" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="20" name="mensagem" type="tns:mensagem" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mensagem">
+        <xs:sequence>
+          <xs:element name="nomeOrgaoResponsavel">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="100" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="texto">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="150" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ws04Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="mensagemRetorno" type="tns:mensagemRetorno" />
+          <xs:element minOccurs="0" name="statusEnvio" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mensagemRetorno">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoRetorno" type="xs:string" />
+          <xs:element minOccurs="0" name="descricaoRetorno" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsFault">
+        <xs:sequence>
+          <xs:element name="faultCode" type="xs:string" />
+          <xs:element name="faultString" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="validacaoCadastralResponse">
+    <wsdl:part name="ws04Response" element="tns:ws04Response" />
+  </wsdl:message>
+  <wsdl:message name="wsFaultException">
+    <wsdl:part name="wsFault" element="tns:wsFault" />
+  </wsdl:message>
+  <wsdl:message name="validacaoCadastral">
+    <wsdl:part name="ws04Request" element="tns:ws04Request" />
+  </wsdl:message>
+  <wsdl:portType name="ws04">
+    <wsdl:operation name="validacaoCadastral">
+      <wsdl:input name="validacaoCadastral" message="tns:validacaoCadastral" />
+      <wsdl:output name="validacaoCadastralResponse" message="tns:validacaoCadastralResponse" />
+      <wsdl:fault name="wsFaultException" message="tns:wsFaultException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ws04SoapBinding" type="tns:ws04">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validacaoCadastral">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="validacaoCadastral">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validacaoCadastralResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="wsFaultException">
+        <soap12:fault use="literal" name="wsFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws04">
+    <wsdl:port name="ws04Port" binding="tns:ws04SoapBinding">
+      <soap12:address location="https://wwwc.webhom.serpro.gov.br:443/services/ws04/ws04" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

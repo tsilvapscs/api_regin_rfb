@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicoIntegracaoS99" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IServicoIntegracaoS99_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body />
+                          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body />
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <mssp:SslContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient" xmlns:mssp="http://schemas.microsoft.com/ws/2005/07/securitypolicy">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys />
+                                    <mssp:RequireClientCertificate />
+                                  </wsp:Policy>
+                                </mssp:SslContextToken>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic256 />
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict />
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp />
+                            <sp:EncryptSignature />
+                            <sp:OnlySignEntireHeadersAndBody />
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:Wss11>
+                          <wsp:Policy />
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens />
+                            <sp:RequireClientEntropy />
+                            <sp:RequireServerEntropy />
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IServicoIntegracaoS99_EnviarS99_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IServicoIntegracaoS99_EnviarS99_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://www.jucerja.rj.gov.br/ServicoIntegracaoS99/ServicoIntegracaoS99.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://www.jucerja.rj.gov.br/ServicoIntegracaoS99/ServicoIntegracaoS99.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://www.jucerja.rj.gov.br/ServicoIntegracaoS99/ServicoIntegracaoS99.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/jucerja.rj.servicos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicoIntegracaoS99_EnviarS99_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarS99" />
+  </wsdl:message>
+  <wsdl:message name="IServicoIntegracaoS99_EnviarS99_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarS99Response" />
+  </wsdl:message>
+  <wsdl:portType name="IServicoIntegracaoS99">
+    <wsdl:operation name="EnviarS99">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicoIntegracaoS99/EnviarS99" message="tns:IServicoIntegracaoS99_EnviarS99_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicoIntegracaoS99/EnviarS99Response" message="tns:IServicoIntegracaoS99_EnviarS99_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IServicoIntegracaoS99" type="tns:IServicoIntegracaoS99">
+    <wsp:PolicyReference URI="#WSHttpBinding_IServicoIntegracaoS99_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviarS99">
+      <soap12:operation soapAction="http://tempuri.org/IServicoIntegracaoS99/EnviarS99" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IServicoIntegracaoS99_EnviarS99_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IServicoIntegracaoS99_EnviarS99_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicoIntegracaoS99">
+    <wsdl:port name="WSHttpBinding_IServicoIntegracaoS99" binding="tns:WSHttpBinding_IServicoIntegracaoS99">
+      <soap12:address location="http://jucerjaweb.intranet.jucerja.rj.gov.br/ServicoIntegracaoS99/ServicoIntegracaoS99.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://jucerjaweb.intranet.jucerja.rj.gov.br/ServicoIntegracaoS99/ServicoIntegracaoS99.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <X509Data>
+              <X509Certificate>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</X509Certificate>
+            </X509Data>
+          </KeyInfo>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

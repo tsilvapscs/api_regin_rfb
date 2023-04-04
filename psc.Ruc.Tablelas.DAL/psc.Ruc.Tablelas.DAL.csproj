@@ -1,0 +1,160 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA55D9EC-0B71-4D1E-BEA0-171501D39B0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>psc.Ruc.Tablelas.DAL</RootNamespace>
+    <AssemblyName>psc.Ruc.Tablelas.DAL</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\TaxAssembliesProjetos\TaxAssembliesES 2005\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.4.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\TaxAssembliesProjetos\TaxAssembliesES 2005\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="psc.Framework, Version=1.0.5459.23223, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\TaxAssembliesProjetos\TaxAssembliesES 2005\psc.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connection\ConnectionProviderORACLE.cs" />
+    <Compile Include="Connection\ConnectionProviderSQL.cs" />
+    <Compile Include="Connection\DBInteractionBaseORACLE.cs" />
+    <Compile Include="Connection\DBInteractionBaseSQL.cs" />
+    <Compile Include="dHelper.cs" />
+    <Compile Include="Connection\ConnectionProvider.cs" />
+    <Compile Include="Connection\DBInteractionBase.cs" />
+    <Compile Include="Endereco.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Ruc\Ruc_Gen_Protocolo_sqlserver.cs" />
+    <Compile Include="Ruc\Ruc_Actv_Econ_sqlserver.cs" />
+    <Compile Include="Ruc\Ruc_Comp_sqlserver.cs" />
+    <Compile Include="Ruc\Ruc_Estab_sqlserver.cs" />
+    <Compile Include="Ruc\Ruc_General_sqlserver.cs" />
+    <Compile Include="Ruc\RUC_REPRESENTANTES_CO_ORACLE.cs" />
+    <Compile Include="Ruc\Ruc_Prof_co_sqlserver.cs" />
+    <Compile Include="Ruc\Ruc_Relat_Prof_co_sqlserver.cs" />
+    <Compile Include="Ruc\Ruc_Prof_co_oracle.cs" />
+    <Compile Include="Ruc\Ruc_Relat_Prof_co_oracle.cs" />
+    <Compile Include="Ruc\MAC_LOG_CARGA_JUNTA_HOMOLOG.cs" />
+    <Compile Include="Ruc\PSC_PROTOCOLO.cs" />
+    <Compile Include="Ruc\Psc_Prot_Evento_Rfb.cs" />
+    <Compile Include="Ruc\Ruc_Actv_Econ.cs" />
+    <Compile Include="Ruc\Ruc_actv_outro_estab.cs" />
+    <Compile Include="Ruc\Ruc_Cbo_Econ.cs" />
+    <Compile Include="Ruc\Ruc_Comp.cs" />
+    <Compile Include="Ruc\Ruc_Estab.cs" />
+    <Compile Include="Ruc\Ruc_General.cs" />
+    <Compile Include="Ruc\Ruc_Gen_Protocolo.cs" />
+    <Compile Include="Ruc\Ruc_Outro_Estab.cs" />
+    <Compile Include="Ruc\Ruc_Prof.cs" />
+    <Compile Include="Ruc\Ruc_Relat_Prof.cs" />
+    <Compile Include="Ruc\RUC_REPRESENTANTES_CO_SQLSERVER.cs" />
+    <Compile Include="Ruc\Tab_Inform_Extra_juntacs.cs" />
+    <Compile Include="Web References\wsRfbRegin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsRfbRegin\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsRfbRegin\Retorno.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsRfbRegin\RetornoBasico.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsRfbRegin\RetornoS01.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsRfbRegin\RetornoV2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsRfbRegin\ServiceReginRFB.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.57.0.176/wsrfbregin/ServiceReginRFB.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsRfbRegin\</RelPath>
+      <UpdateFromURL>http://10.57.0.176/wsrfbregin/ServiceReginRFB.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>psc_Ruc_Tablelas_DAL_wsRfbRegin_ServiceReginRFB</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wsRfbRegin\ServiceReginRFB.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

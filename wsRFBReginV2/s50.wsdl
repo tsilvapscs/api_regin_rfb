@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://servicos.integrador.serpro.gov.br/" xmlns:sch2="http://servicos.integrador.serpro.gov.br/processo" xmlns:sch4="http://servicos.integrador.serpro.gov.br/inscricao" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch1="http://servicos.integrador.serpro.gov.br/commons-types" xmlns:sch3="http://servicos.integrador.serpro.gov.br/licenca" xmlns:sch0="http://servicos.integrador.serpro.gov.br/" targetNamespace="http://servicos.integrador.serpro.gov.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:inscricao="http://servicos.integrador.serpro.gov.br/inscricao" xmlns:licenca="http://servicos.integrador.serpro.gov.br/licenca" xmlns:commons="http://servicos.integrador.serpro.gov.br/commons-types" xmlns:processo="http://servicos.integrador.serpro.gov.br/processo" xmlns="http://servicos.integrador.serpro.gov.br/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servicos.integrador.serpro.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://servicos.integrador.serpro.gov.br/commons-types" />
+      <xs:import namespace="http://servicos.integrador.serpro.gov.br/processo" />
+      <xs:import namespace="http://servicos.integrador.serpro.gov.br/licenca" />
+      <xs:import namespace="http://servicos.integrador.serpro.gov.br/inscricao" />
+      <xs:element name="s50Request">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="dadosRFB" type="commons:DadosRFB" />
+            <xs:element minOccurs="0" name="processos" type="sch0:ProcessoCollection" />
+            <xs:element minOccurs="0" name="licencas" type="sch0:LicencaCollection" />
+            <xs:element minOccurs="0" name="inscricoes" type="sch0:IncricaoTributariaCollection" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="s50Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="retornoRedesim" type="commons:RetornoWSRedesim" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ProcessoCollection">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="processo" type="processo:ProcessoLicenciamento" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LicencaCollection">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="licenca" type="licenca:LicencaEstabelecimento" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="IncricaoTributariaCollection">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="inscricaoTributaria" type="inscricao:Estabelecimento" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns="http://servicos.integrador.serpro.gov.br/commons-types" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servicos.integrador.serpro.gov.br/commons-types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="RetornoWSRedesim">
+        <xs:sequence>
+          <xs:element name="statusEnvio" type="xs:string" />
+          <xs:element minOccurs="0" name="codigoRetorno">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="descricaoRetorno">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="298" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="timestamp" type="sch1:DataRFB" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DadosRFB">
+        <xs:sequence>
+          <xs:element name="codServico">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="[F|S]{1}\d{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="versao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="6" />
+                <xs:pattern value="\d{6}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="usoRFB">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="64" />
+                <xs:pattern value="(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)(JC|CC|IE)[A-Za-z0-9]*" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroProtocolo">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="13" />
+                <xs:pattern value="[a-zA-Z]{3}\d{10}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroOcorrencia">
+            <xs:simpleType>
+              <xs:restriction base="xs:int">
+                <xs:totalDigits value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="codEvento">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="\d{3}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="3" name="cpf">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="reciboSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="identificacaoSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="DataRFB">
+        <xs:restriction base="xs:string">
+          <xs:length value="14" />
+          <xs:pattern value="\d{4}(((0)[0-9])|((1)[0-2]))([0-2][0-9]|(3)[0-1])([0-1][0-9]|(2)[0-3])([0-5][0-9])([0-5][0-9])" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DataRFBSemHora">
+        <xs:restriction base="xs:string">
+          <xs:length value="8" />
+          <xs:pattern value="\d{4}(((0)[0-9])|((1)[0-2]))([0-2][0-9]|(3)[0-1])" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Motivo">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="400" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CNPJ">
+        <xs:restriction base="xs:string">
+          <xs:length value="14" />
+          <xs:pattern value="\d{14}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CPF">
+        <xs:restriction base="xs:string">
+          <xs:length value="11" />
+          <xs:pattern value="\d{11}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="URL">
+        <xs:restriction base="xs:anyURI">
+          <xs:pattern value="https?://.+" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="CNAE">
+        <xs:all>
+          <xs:element name="codigo" type="xs:string" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="Orgao">
+        <xs:all>
+          <xs:element minOccurs="0" name="cnpj" type="sch1:CNPJ" />
+          <xs:element name="nome" type="xs:string" />
+        </xs:all>
+      </xs:complexType>
+      <xs:simpleType name="ProtocoloRedesim">
+        <xs:restriction base="xs:string">
+          <xs:length value="13" />
+          <xs:pattern value="(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)[A-Za-z]{1}[0-9]{10}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SuperTipo">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="INSCRICAO_TRIBUTARIA_ESTADUAL" />
+          <xs:enumeration value="INSCRICAO_TRIBUTARIA_MUNICIPAL" />
+          <xs:enumeration value="ALVARA_FUNCIONAMENTO_MUNICIPAL" />
+          <xs:enumeration value="CORPO_DE_BOMBEIROS" />
+          <xs:enumeration value="VIGILANCIA_SANITARIA" />
+          <xs:enumeration value="MEIO_AMBIENTE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema xmlns:commons="http://servicos.integrador.serpro.gov.br/commons-types" xmlns="http://servicos.integrador.serpro.gov.br/processo" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servicos.integrador.serpro.gov.br/processo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://servicos.integrador.serpro.gov.br/commons-types" />
+      <xs:complexType name="ProcessoLicenciamento">
+        <xs:sequence>
+          <xs:element name="cnpjEstabelecimento" type="commons:CNPJ" />
+          <xs:element maxOccurs="99" name="andamentoProcessoLicenciamento" type="sch2:AndamentoProcessoLicenciamento" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AndamentoProcessoLicenciamento">
+        <xs:all>
+          <xs:element name="identificadorProcessoLicenciamento" type="sch2:IdentificadorProcessoLicenciamento" />
+          <xs:element name="situacaoProcessoLicenciamento" type="sch2:SituacaoProcessoLicenciamento" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="IdentificadorProcessoLicenciamento">
+        <xs:all>
+          <xs:element name="superTipo" type="sch2:SurperTipo" />
+          <xs:element name="orgao" type="commons:Orgao" />
+          <xs:element name="tipoLicenca" type="sch2:TipoLicenca" />
+          <xs:element name="atividadeEconomica" type="commons:CNAE" />
+          <xs:element name="protocoloRedesim" type="commons:ProtocoloRedesim" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="SituacaoProcessoLicenciamento">
+        <xs:all>
+          <xs:element name="situacaoProcesso" type="sch2:SituacaoProcesso" />
+          <xs:element name="dataModificacaoSituacao" type="commons:DataRFB" />
+          <xs:element name="classificacaoRisco" type="sch2:ClassificacaoRisco" />
+        </xs:all>
+      </xs:complexType>
+      <xs:simpleType name="ClassificacaoRiscoType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BAIXO" />
+          <xs:enumeration value="ALTO" />
+          <xs:enumeration value="NAO_INFORMADO" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ClassificacaoRisco">
+        <xs:all>
+          <xs:element name="situacao" type="sch2:ClassificacaoRiscoType" />
+          <xs:element minOccurs="0" name="motivo" type="commons:Motivo" />
+        </xs:all>
+      </xs:complexType>
+      <xs:simpleType name="TipoLicenca">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SituacaoProcessoType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NAO_INICIADO" />
+          <xs:enumeration value="DEFERIDO" />
+          <xs:enumeration value="INDEFERIDO" />
+          <xs:enumeration value="CANCELADO" />
+          <xs:enumeration value="EM_ANDAMENTO" />
+          <xs:enumeration value="EM_EXIGENCIA" />
+          <xs:enumeration value="NAO_INTEGRADO" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SurperTipo">
+        <xs:restriction base="commons:SuperTipo">
+          <xs:enumeration value="ALVARA_FUNCIONAMENTO_MUNICIPAL" />
+          <xs:enumeration value="CORPO_DE_BOMBEIROS" />
+          <xs:enumeration value="VIGILANCIA_SANITARIA" />
+          <xs:enumeration value="MEIO_AMBIENTE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="SituacaoProcesso">
+        <xs:all>
+          <xs:element name="situacao" type="sch2:SituacaoProcessoType" />
+          <xs:element minOccurs="0" name="motivo" type="commons:Motivo" />
+        </xs:all>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:commons="http://servicos.integrador.serpro.gov.br/commons-types" xmlns="http://servicos.integrador.serpro.gov.br/licenca" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servicos.integrador.serpro.gov.br/licenca" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://servicos.integrador.serpro.gov.br/commons-types" />
+      <xs:complexType name="LicencaEstabelecimento">
+        <xs:sequence>
+          <xs:element name="cnpjEstabelecimento" type="commons:CNPJ" />
+          <xs:element maxOccurs="unbounded" name="licencas" type="sch3:Licenca" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Licenca">
+        <xs:all>
+          <xs:element name="identificadorLicenca" type="sch3:IdentificadorLicenca" />
+          <xs:element name="situacaoLicenca" type="sch3:SituacaoLicenca" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="IdentificadorLicenca">
+        <xs:all>
+          <xs:element name="superTipo" type="sch3:SurperTipo" />
+          <xs:element name="orgao" type="commons:Orgao" />
+          <xs:element name="tipoLicenca" type="sch3:TipoLicenca" />
+          <xs:element name="atividadeEconomica" type="commons:CNAE" />
+          <xs:element name="protocoloRedesim" type="commons:ProtocoloRedesim" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="InformacoesLicenca">
+        <xs:all>
+          <xs:element minOccurs="0" name="numero" type="sch3:NumeroLicenca" />
+          <xs:element minOccurs="0" name="link" type="commons:URL" />
+          <xs:element minOccurs="0" name="validade" type="commons:DataRFBSemHora" />
+          <xs:element name="nomeLicenca" type="sch3:NomeLicenca" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="SituacaoLicenca">
+        <xs:all>
+          <xs:element name="data" type="commons:DataRFB" />
+          <xs:element name="situacao" type="sch3:StatusLicenca" />
+          <xs:element name="informacoes" type="sch3:InformacoesLicenca" />
+          <xs:element minOccurs="0" name="cpfAnalista" type="commons:CPF" />
+        </xs:all>
+      </xs:complexType>
+      <xs:simpleType name="SurperTipo">
+        <xs:restriction base="commons:SuperTipo">
+          <xs:enumeration value="ALVARA_FUNCIONAMENTO_MUNICIPAL" />
+          <xs:enumeration value="CORPO_DE_BOMBEIROS" />
+          <xs:enumeration value="VIGILANCIA_SANITARIA" />
+          <xs:enumeration value="MEIO_AMBIENTE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TipoLicenca">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NumeroLicenca">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="NomeLicenca">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="200" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="StatusLicencaSemMotivoEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="REGULAR" />
+          <xs:enumeration value="DISPENSADA" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="StatusLicencaComMotivoEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NAO_REGULAR" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="StatusLicencaComMotivo">
+        <xs:all>
+          <xs:element name="situacao" type="sch3:StatusLicencaComMotivoEnum" />
+          <xs:element name="motivo" type="commons:Motivo" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="StatusLicencaSemMotivo">
+        <xs:all>
+          <xs:element name="situacao" type="sch3:StatusLicencaSemMotivoEnum" />
+          <xs:element minOccurs="0" name="motivo" type="commons:Motivo" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="StatusLicenca">
+        <xs:choice>
+          <xs:element name="situacaoSemMotivo" type="sch3:StatusLicencaSemMotivo" />
+          <xs:element name="situacaoComMotivo" type="sch3:StatusLicencaComMotivo" />
+        </xs:choice>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:commons="http://servicos.integrador.serpro.gov.br/commons-types" xmlns="http://servicos.integrador.serpro.gov.br/inscricao" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servicos.integrador.serpro.gov.br/inscricao" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://servicos.integrador.serpro.gov.br/commons-types" />
+      <xs:complexType name="Estabelecimento">
+        <xs:sequence>
+          <xs:element name="cnpj" type="commons:CNPJ" />
+          <xs:element name="inscricoes">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="inscricao" type="sch4:InscricaoTributaria" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="InscricaoTributaria">
+        <xs:all>
+          <xs:element name="superTipo" type="sch4:SuperTipo" />
+          <xs:element name="tipoInscricao" type="sch4:TipoInscricao" />
+          <xs:element name="orgao" type="commons:Orgao" />
+          <xs:element name="protocoloRedesim" type="commons:ProtocoloRedesim" />
+          <xs:element minOccurs="0" name="numero" type="sch4:NumeroInscricaoTributaria" />
+          <xs:element name="situacaoInscricao" type="sch4:SituacaoInscricaoTributaria" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="SituacaoInscricaoTributaria">
+        <xs:all>
+          <xs:element name="situacao" type="sch4:TipoSituacaoInscricaoTributaria" />
+          <xs:element minOccurs="0" name="cpfAnalista" type="commons:CPF" />
+          <xs:element name="dataHoraEmissao" type="commons:DataRFB" />
+          <xs:element name="dataHoraAtualizacaoSituacao" type="commons:DataRFB" />
+          <xs:element minOccurs="0" name="link" type="commons:URL" />
+          <xs:element name="uf">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="codigoMunicipio">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="4" />
+                <xs:pattern value="\d{4}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:simpleType name="NumeroInscricaoTributaria">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="50" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TipoInscricao">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MUNICIPAL" />
+          <xs:enumeration value="ESTADUAL" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SituacaoInscricaoSemMotivoEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ATIVA" />
+          <xs:enumeration value="DISPENSADA" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SituacaoInscricaoComMotivoEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BAIXADA" />
+          <xs:enumeration value="INAPTA" />
+          <xs:enumeration value="SUSPENSA" />
+          <xs:enumeration value="NULA" />
+          <xs:enumeration value="DISPENSADA" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="SituacaoInscricaoComMotivo">
+        <xs:all>
+          <xs:element name="situacao" type="sch4:SituacaoInscricaoComMotivoEnum" />
+          <xs:element name="motivo" type="commons:Motivo" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="SituacaoInscricaoSemMotivo">
+        <xs:all>
+          <xs:element name="situacao" type="sch4:SituacaoInscricaoSemMotivoEnum" />
+          <xs:element minOccurs="0" name="motivo" type="commons:Motivo" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="TipoSituacaoInscricaoTributaria">
+        <xs:choice>
+          <xs:element name="situacaoSemMotivo" type="sch4:SituacaoInscricaoSemMotivo" />
+          <xs:element name="situacaoComMotivo" type="sch4:SituacaoInscricaoComMotivo" />
+        </xs:choice>
+      </xs:complexType>
+      <xs:simpleType name="SuperTipo">
+        <xs:restriction base="commons:SuperTipo">
+          <xs:enumeration value="INSCRICAO_TRIBUTARIA_ESTADUAL" />
+          <xs:enumeration value="INSCRICAO_TRIBUTARIA_MUNICIPAL" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="s50Request">
+    <wsdl:part name="s50Request" element="sch0:s50Request" />
+  </wsdl:message>
+  <wsdl:message name="s50Response">
+    <wsdl:part name="s50Response" element="sch0:s50Response" />
+  </wsdl:message>
+  <wsdl:portType name="S50Port">
+    <wsdl:operation name="s50">
+      <wsdl:input name="s50Request" message="sch0:s50Request" />
+      <wsdl:output name="s50Response" message="sch0:s50Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="S50PortSoap11" type="sch0:S50Port">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="s50">
+      <soap:operation soapAction="" />
+      <wsdl:input name="s50Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="s50Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="S50PortService">
+    <wsdl:port name="S50PortSoap11" binding="sch0:S50PortSoap11">
+      <soap:address location="https://hom-lredesim.estaleiro.serpro.gov.br/s50/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

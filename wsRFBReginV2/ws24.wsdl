@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ws24" targetNamespace="http://redesim.serpro.gov.br/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:tns="http://redesim.serpro.gov.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+  <types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://redesim.serpro.gov.br/" xmlns:tns="http://redesim.serpro.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:element name="mensagemRetorno" type="tns:mensagemRetorno"/>
+			<xs:element name="ws24Request" type="tns:ws24Request"/>
+			<xs:element name="ws24Response" type="tns:ws24Response"/>
+			<xs:element name="wsFault" nillable="true" type="tns:wsFault"/>
+			<xs:complexType name="ws24Request">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="1" name="codServico">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="3"/>
+								<xs:pattern value="[F|S]{1}24"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="cnpj">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="14"/>
+								<xs:pattern value="\d{14}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="versao">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="6"/>
+								<xs:pattern value="\d{6}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="usoRFB">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="64"/>
+								<xs:pattern value="(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)(JC|CC|IE)[A-Za-z0-9]*"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="marcacaoInteresse">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="1"/>
+								<xs:pattern value="(1|2)\d{1}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ws24Response">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="1" name="statusEnvio">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="3"/>
+								<xs:pattern value="OK|NOK"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="20" minOccurs="0" name="mensagemRetorno" type="tns:mensagemRetorno"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="mensagemRetorno">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="0" name="codigoRetorno">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="2"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="descricaoRetorno">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="198"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsFault">
+				<xs:sequence>
+					<xs:element name="faultCode" type="xs:string"/>
+					<xs:element name="faultString" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+  </types>
+  <message name="atualizarInteresseEstabelecimento">
+    <part name="ws24Request" element="tns:ws24Request">
+    </part>
+  </message>
+  <message name="wsFaultException">
+    <part name="wsFault" element="tns:wsFault">
+    </part>
+  </message>
+  <message name="atualizarInteresseEstabelecimentoResponse">
+    <part name="ws24Response" element="tns:ws24Response">
+    </part>
+  </message>
+  <portType name="ws24">
+    <operation name="atualizarInteresseEstabelecimento">
+      <input message="tns:atualizarInteresseEstabelecimento" wsam:Action="http://redesim.serpro.gov.br/ws24/atualizarInteresseEstabelecimentoRequest">
+    </input>
+      <output message="tns:atualizarInteresseEstabelecimentoResponse" wsam:Action="http://redesim.serpro.gov.br/ws24/atualizarInteresseEstabelecimentoResponse">
+    </output>
+      <fault name="wsFaultException" message="tns:wsFaultException">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="ws24PortBinding" type="tns:ws24">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="atualizarInteresseEstabelecimento">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="wsFaultException">
+        <soap:fault name="wsFaultException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="ws24">
+    <port name="ws24Port" binding="tns:ws24PortBinding">
+      <soap:address location="https://wwwc.webhom.serpro.gov.br:443/services/ws24/ws24"/>
+    </port>
+  </service>
+</definitions>

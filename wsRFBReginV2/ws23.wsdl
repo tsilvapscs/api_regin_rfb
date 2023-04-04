@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="ws23" targetNamespace="http://redesim.serpro.gov.br/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:tns="http://redesim.serpro.gov.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+  <types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://redesim.serpro.gov.br/" xmlns:tns="http://redesim.serpro.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:element name="ws23Request" type="tns:ws23Request"/>
+			<xs:element name="ws23Response" type="tns:ws23Response"/>
+			<xs:element name="wsFault" type="tns:wsFault"/>
+			<xs:complexType name="geradorNire">
+				<xs:sequence>
+					<xs:element name="uf">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="2"/>
+								<xs:pattern value="AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="quantidade">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="1"/>
+								<xs:pattern value="[1-9]"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ws23Request">
+				<xs:sequence>
+					<xs:element name="codServico">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="3"/>
+								<xs:pattern value="[F|S]{1}23"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="versao">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="6"/>
+								<xs:pattern value="\d{6}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="usoRFB">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="64"/>
+								<xs:pattern value="(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)(JC|CC|IE)[A-Za-z0-9]*"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element minOccurs="1" name="reciboSolicitacao">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element minOccurs="1" name="identificacaoSolicitacao">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="14"/>
+								<xs:pattern value="\d{14}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="26" minOccurs="1" name="geradorNire" type="tns:geradorNire"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="nires">
+				<xs:sequence>
+					<xs:element maxOccurs="9" minOccurs="1" name="nire">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="11"/>
+								<xs:pattern value="\d{11}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="resultadoPorUf">
+				<xs:sequence>
+					<xs:element name="uf">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="2"/>
+								<xs:pattern value="AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO|EX"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="nires" type="tns:nires"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="niresGerados">
+				<xs:sequence>
+					<xs:element maxOccurs="26" minOccurs="0" name="resultadoPorUf" type="tns:resultadoPorUf"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ws23Response">
+				<xs:sequence>
+					<xs:element name="statusEnvio" type="xs:string"/>
+					<xs:element name="mensagem" type="xs:string"/>
+					<xs:element name="niresGerados" type="tns:niresGerados"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="wsFault">
+				<xs:sequence>
+					<xs:element name="faultCode" type="xs:string"/>
+					<xs:element name="faultString" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+  </types>
+  <message name="wsFaultException">
+    <part name="wsFault" element="tns:wsFault">
+    </part>
+  </message>
+  <message name="encaminharNireResponse">
+    <part name="ws23Response" element="tns:ws23Response">
+    </part>
+  </message>
+  <message name="encaminharNire">
+    <part name="ws23Request" element="tns:ws23Request">
+    </part>
+  </message>
+  <portType name="ws23">
+    <operation name="encaminharNire">
+      <input message="tns:encaminharNire" wsam:Action="http://redesim.serpro.gov.br/ws23/encaminharNireRequest">
+    </input>
+      <output message="tns:encaminharNireResponse" wsam:Action="http://redesim.serpro.gov.br/ws23/encaminharNireResponse">
+    </output>
+      <fault name="wsFaultException" message="tns:wsFaultException">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="ws23PortBinding" type="tns:ws23">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="encaminharNire">
+      <soap:operation style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="wsFaultException">
+        <soap:fault name="wsFaultException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="ws23">
+    <port name="ws23Port" binding="tns:ws23PortBinding">
+      <soap:address location="https://wwwc.webhom.serpro.gov.br:443/services/ws23/ws23"/>
+    </port>
+  </service>
+</definitions>

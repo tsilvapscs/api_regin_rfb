@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ws13" targetNamespace="http://redesim.serpro.gov.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://redesim.serpro.gov.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://redesim.serpro.gov.br/" xmlns:tns="http://redesim.serpro.gov.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:element name="mensagemInformativa" type="tns:mensagemInformativa"/>
+			<xs:element name="ws13Request" type="tns:ws13Request"/>
+			<xs:element name="ws13Response" type="tns:ws13Response"/>
+			<xs:element name="wsFault" type="tns:wsFault"/>
+			<xs:complexType name="ws13Request">
+				<xs:sequence>
+					<xs:element name="codServico">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="3"/>
+								<xs:pattern value="[F|S]{1}13"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="versao">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="6"/>
+								<xs:pattern value="\d{6}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="reciboSolicitacao">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="identificacaoSolicitacao">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="14"/>
+								<xs:pattern value="\d{14}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="protocolo">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="13"/>
+								<xs:pattern value="[a-zA-Z]{3}\d{10}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="protocoloOcorrencia">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="2"/>
+								<xs:pattern value="\d{2}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="usoRFB">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="64"/>
+								<xs:pattern value="(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)(JC|CC|IE)[A-Za-z0-9]*"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="20" minOccurs="1" name="mensagem" type="tns:mensagemInformativa"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="mensagemInformativa">
+				<xs:sequence>
+					<xs:element name="nomeOrgaoResponsavel">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="100"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="texto">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="300"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="link">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="150"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ws13Response">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="mensagemRetorno" type="tns:mensagemRetorno"/>
+					<xs:element minOccurs="0" name="statusEnvio" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="mensagemRetorno">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="codigoRetorno" type="xs:string"/>
+					<xs:element minOccurs="0" name="descricaoRetorno" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wsFault">
+				<xs:sequence>
+					<xs:element name="faultCode" type="xs:string"/>
+					<xs:element name="faultString" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="enviarMensagem">
+    <wsdl:part name="ws13Request" element="tns:ws13Request">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="wsFaultException">
+    <wsdl:part name="wsFault" element="tns:wsFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enviarMensagemResponse">
+    <wsdl:part name="ws13Response" element="tns:ws13Response">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ws13">
+    <wsdl:operation name="enviarMensagem">
+      <wsdl:input name="enviarMensagem" message="tns:enviarMensagem">
+    </wsdl:input>
+      <wsdl:output name="enviarMensagemResponse" message="tns:enviarMensagemResponse">
+    </wsdl:output>
+      <wsdl:fault name="wsFaultException" message="tns:wsFaultException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ws13SoapBinding" type="tns:ws13">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="enviarMensagem">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="enviarMensagem">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="enviarMensagemResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="wsFaultException">
+        <soap12:fault name="wsFaultException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws13">
+    <wsdl:port name="ws13Port" binding="tns:ws13SoapBinding">
+      <soap12:address location="https://wwwc.webhom.serpro.gov.br:443/services/ws13/ws13"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

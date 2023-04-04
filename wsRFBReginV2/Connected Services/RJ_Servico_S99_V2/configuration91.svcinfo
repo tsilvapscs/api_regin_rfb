@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="8bjIXR3z1E8ing/vWDuTlkfOSZR6O4ZUK6YNYNys/ro=">
+  <bindingConfigurations>
+    <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IServicoIntegracaoS99">
+      <properties>
+        <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>WSHttpBinding_IServicoIntegracaoS99</serializedValue>
+        </property>
+        <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/openTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/receiveTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/sendTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/bypassProxyOnLocal" isComplexType="false" isExplicitlyDefined="true" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/transactionFlow" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>False</serializedValue>
+        </property>
+        <property path="/hostNameComparisonMode" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.HostNameComparisonMode, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>StrongWildcard</serializedValue>
+        </property>
+        <property path="/maxBufferPoolSize" isComplexType="false" isExplicitlyDefined="true" clrType="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/maxReceivedMessageSize" isComplexType="false" isExplicitlyDefined="true" clrType="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/messageEncoding" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.WSMessageEncoding, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Text</serializedValue>
+        </property>
+        <property path="/proxyAddress" isComplexType="false" isExplicitlyDefined="false" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/readerQuotas" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.XmlDictionaryReaderQuotasElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.XmlDictionaryReaderQuotasElement</serializedValue>
+        </property>
+        <property path="/readerQuotas/maxDepth" isComplexType="false" isExplicitlyDefined="false" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>0</serializedValue>
+        </property>
+        <property path="/readerQuotas/maxStringContentLength" isComplexType="false" isExplicitlyDefined="false" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>0</serializedValue>
+        </property>
+        <property path="/readerQuotas/maxArrayLength" isComplexType="false" isExplicitlyDefined="false" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>0</serializedValue>
+        </property>
+        <property path="/readerQuotas/maxBytesPerRead" isComplexType="false" isExplicitlyDefined="false" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>0</serializedValue>
+        </property>
+        <property path="/readerQuotas/maxNameTableCharCount" isComplexType="false" isExplicitlyDefined="false" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>0</serializedValue>
+        </property>
+        <property path="/reliableSession" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.StandardBindingOptionalReliableSessionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.StandardBindingOptionalReliableSessionElement</serializedValue>
+        </property>
+        <property path="/reliableSession/ordered" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>True</serializedValue>
+        </property>
+        <property path="/reliableSession/inactivityTimeout" isComplexType="false" isExplicitlyDefined="false" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>00:10:00</serializedValue>
+        </property>
+        <property path="/reliableSession/enabled" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>False</serializedValue>
+        </property>
+        <property path="/textEncoding" isComplexType="false" isExplicitlyDefined="false" clrType="System.Text.Encoding, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.Text.UTF8Encoding</serializedValue>
+        </property>
+        <property path="/useDefaultWebProxy" isComplexType="false" isExplicitlyDefined="true" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/allowCookies" isComplexType="false" isExplicitlyDefined="true" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/security" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.WSHttpSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.WSHttpSecurityElement</serializedValue>
+        </property>
+        <property path="/security/mode" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.SecurityMode, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Message</serializedValue>
+        </property>
+        <property path="/security/transport" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.WSHttpTransportSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.WSHttpTransportSecurityElement</serializedValue>
+        </property>
+        <property path="/security/transport/clientCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.HttpClientCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Windows</serializedValue>
+        </property>
+        <property path="/security/transport/proxyCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.HttpProxyCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>None</serializedValue>
+        </property>
+        <property path="/security/transport/extendedProtectionPolicy" isComplexType="true" isExplicitlyDefined="false" clrType="System.Security.Authentication.ExtendedProtection.Configuration.ExtendedProtectionPolicyElement, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.Security.Authentication.ExtendedProtection.Configuration.ExtendedProtectionPolicyElement</serializedValue>
+        </property>
+        <property path="/security/transport/extendedProtectionPolicy/policyEnforcement" isComplexType="false" isExplicitlyDefined="false" clrType="System.Security.Authentication.ExtendedProtection.PolicyEnforcement, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Never</serializedValue>
+        </property>
+        <property path="/security/transport/extendedProtectionPolicy/protectionScenario" isComplexType="false" isExplicitlyDefined="false" clrType="System.Security.Authentication.ExtendedProtection.ProtectionScenario, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>TransportSelected</serializedValue>
+        </property>
+        <property path="/security/transport/extendedProtectionPolicy/customServiceNames" isComplexType="true" isExplicitlyDefined="false" clrType="System.Security.Authentication.ExtendedProtection.Configuration.ServiceNameElementCollection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>(Coleção)</serializedValue>
+        </property>
+        <property path="/security/transport/realm" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/security/message" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.NonDualMessageSecurityOverHttpElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.NonDualMessageSecurityOverHttpElement</serializedValue>
+        </property>
+        <property path="/security/message/clientCredentialType" isComplexType="false" isExplicitlyDefined="true" clrType="System.ServiceModel.MessageCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Certificate</serializedValue>
+        </property>
+        <property path="/security/message/negotiateServiceCredential" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>True</serializedValue>
+        </property>
+        <property path="/security/message/algorithmSuite" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.Security.SecurityAlgorithmSuite, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Default</serializedValue>
+        </property>
+        <property path="/security/message/establishSecurityContext" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>True</serializedValue>
+        </property>
+      </properties>
+    </bindingConfiguration>
+  </bindingConfigurations>
+  <endpoints>
+    <endpoint name="WSHttpBinding_IServicoIntegracaoS99" contract="RJ_Servico_S99_V2.IServicoIntegracaoS99" bindingType="wsHttpBinding" address="http://jucerjaweb.intranet.jucerja.rj.gov.br/ServicoIntegracaoS99/ServicoIntegracaoS99.svc" bindingConfiguration="WSHttpBinding_IServicoIntegracaoS99">
+      <properties>
+        <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>http://jucerjaweb.intranet.jucerja.rj.gov.br/ServicoIntegracaoS99/ServicoIntegracaoS99.svc</serializedValue>
+        </property>
+        <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/binding" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>wsHttpBinding</serializedValue>
+        </property>
+        <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>WSHttpBinding_IServicoIntegracaoS99</serializedValue>
+        </property>
+        <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>RJ_Servico_S99_V2.IServicoIntegracaoS99</serializedValue>
+        </property>
+        <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
+        </property>
+        <property path="/headers/headers" isComplexType="false" isExplicitlyDefined="true" clrType="System.ServiceModel.Channels.AddressHeaderCollection, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>&lt;Header /&gt;</serializedValue>
+        </property>
+        <property path="/identity" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.IdentityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.IdentityElement</serializedValue>
+        </property>
+        <property path="/identity/userPrincipalName" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.UserPrincipalNameElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.UserPrincipalNameElement</serializedValue>
+        </property>
+        <property path="/identity/userPrincipalName/value" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/identity/servicePrincipalName" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.ServicePrincipalNameElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.ServicePrincipalNameElement</serializedValue>
+        </property>
+        <property path="/identity/servicePrincipalName/value" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/identity/dns" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.DnsElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.DnsElement</serializedValue>
+        </property>
+        <property path="/identity/dns/value" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/identity/rsa" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.RsaElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.RsaElement</serializedValue>
+        </property>
+        <property path="/identity/rsa/value" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/identity/certificate" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.CertificateElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.CertificateElement</serializedValue>
+        </property>
+        <property path="/identity/certificate/encodedValue" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>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</serializedValue>
+        </property>
+        <property path="/identity/certificateReference" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.CertificateReferenceElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.CertificateReferenceElement</serializedValue>
+        </property>
+        <property path="/identity/certificateReference/storeName" isComplexType="false" isExplicitlyDefined="false" clrType="System.Security.Cryptography.X509Certificates.StoreName, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>My</serializedValue>
+        </property>
+        <property path="/identity/certificateReference/storeLocation" isComplexType="false" isExplicitlyDefined="false" clrType="System.Security.Cryptography.X509Certificates.StoreLocation, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>LocalMachine</serializedValue>
+        </property>
+        <property path="/identity/certificateReference/x509FindType" isComplexType="false" isExplicitlyDefined="false" clrType="System.Security.Cryptography.X509Certificates.X509FindType, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>FindBySubjectDistinguishedName</serializedValue>
+        </property>
+        <property path="/identity/certificateReference/findValue" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/identity/certificateReference/isChainIncluded" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>False</serializedValue>
+        </property>
+        <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>WSHttpBinding_IServicoIntegracaoS99</serializedValue>
+        </property>
+        <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/endpointConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+      </properties>
+    </endpoint>
+  </endpoints>
+</SavedWcfConfigurationInformation>

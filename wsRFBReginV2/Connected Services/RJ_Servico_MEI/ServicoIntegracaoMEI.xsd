@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://jucerja.rj.servicos" elementFormDefault="qualified" targetNamespace="http://jucerja.rj.servicos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.jucerja.rj.gov.br/ServicoIntegracaoMEI/ServicoIntegracaoMEI.svc?xsd=xsd2" namespace="jucerja.rj.servicos.datacontract" />
+  <xs:element name="AtualizarMEI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="jucerja.rj.servicos.datacontract" minOccurs="0" name="request" nillable="true" type="q1:RequestMEI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AtualizarMEIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="jucerja.rj.servicos.datacontract" minOccurs="0" name="AtualizarMEIResult" nillable="true" type="q2:ResponseMEI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

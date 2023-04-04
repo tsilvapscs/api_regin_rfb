@@ -1,0 +1,19 @@
+C:\TaxAssembliesProjetos\TaxAssembliesRequerimento_v13\RCPJ.DAL.dll
+C:\TaxAssembliesProjetos\TaxAssembliesRequerimento_v13\RCPJ.DAL.pdb
+C:\SourcesProgramas\Requerimento_v13\SOURCE\RCPJ.DAL\obj\Debug\ResolveAssemblyReference.cache
+C:\SourcesProgramas\Requerimento_v13\SOURCE\RCPJ.DAL\obj\Debug\RCPJ.DAL.dll
+C:\SourcesProgramas\Requerimento_v13\SOURCE\RCPJ.DAL\obj\Debug\RCPJ.DAL.pdb
+D:\TaxAssembliesProjetos\TaxAssembliesRequerimento_v13\RCPJ.DAL.dll
+D:\TaxAssembliesProjetos\TaxAssembliesRequerimento_v13\RCPJ.DAL.pdb
+D:\SourcesProgramas\Requerimento_v13\SOURCE\RCPJ.DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\SourcesProgramas\Requerimento_v13\SOURCE\RCPJ.DAL\obj\Debug\RCPJ.DAL.dll
+D:\SourcesProgramas\Requerimento_v13\SOURCE\RCPJ.DAL\obj\Debug\RCPJ.DAL.pdb
+C:\SourcesProgramas\Requerimento13\SOURCE\RCPJ.DAL\obj\Debug\ResolveAssemblyReference.cache
+C:\SourcesProgramas\Requerimento13\SOURCE\RCPJ.DAL\obj\Debug\RCPJ.DAL.pdb
+C:\SourcesProgramas\Requerimento13\SOURCE\RCPJ.DAL\obj\Debug\RCPJ.DAL.dll
+D:\SourcesProgramas\Deferidor\Source\RCPJ.DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\SourcesProgramas\Deferidor\Source\RCPJ.DAL\obj\Debug\RCPJ.DAL.dll
+D:\SourcesProgramas\Deferidor\Source\RCPJ.DAL\obj\Debug\RCPJ.DAL.pdb
+D:\SourcesProgramas\SourceJUCEES 2005\RCPJ.DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\SourcesProgramas\SourceJUCEES 2005\RCPJ.DAL\obj\Debug\RCPJ.DAL.dll
+D:\SourcesProgramas\SourceJUCEES 2005\RCPJ.DAL\obj\Debug\RCPJ.DAL.pdb

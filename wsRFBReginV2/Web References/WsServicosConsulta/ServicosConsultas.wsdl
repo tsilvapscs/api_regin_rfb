@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://servicos.integrador.serpro.gov.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s2="http://servicos.integrador.serpro.gov.br" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://servicos.integrador.serpro.gov.br/" />
+      <s:import namespace="http://servicos.integrador.serpro.gov.br" />
+      <s:element name="ConsultaEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dadosEntrada" type="tns:Entrada" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Entrada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CnpjOrgaoConsulta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CpfCnpj" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaEmpresaResult" type="tns:Retorno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Retorno">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cnpj" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="regisroDiferente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XmlDBE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codretorno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="oCPFResponse" type="s1:consultaCPFResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="oWs35Response" type="s2:serviceResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="oCNPJResponse" type="s1:retornoWS11Redesim" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidaXMLRegin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pXmlIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pProtocolo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoDeProtocolo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNPJOrgaoRegistro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaXMLReginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidaXMLReginResult" type="tns:Retorno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://servicos.integrador.serpro.gov.br/">
+      <s:complexType name="consultaCPFResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="retornoWSRedesim" type="s1:retornoWSRedesim" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="retornoWS09Redesim" type="s1:retornoWS09Redesim" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="retornoWSRedesim">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="statusEnvio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codigoRetorno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="descricaoRetorno" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="retornoWS09Redesim">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codServico" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="versao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroProtocolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroOcorrencia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codEvento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="reciboSolicitacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="identificacaoSolicitacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="dadosCPF" type="s1:dadosCPF" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dadosCPF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numCPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataNascimento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="residenteExterior" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="situacaoCadastral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endereco" type="s1:endereco09" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nacionalidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeMae" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="naturalidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="anoObito" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="endereco09">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indOrigemEndereco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cep" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="uf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codMunicipio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codTipoLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="logradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="complementoLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="bairro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="distrito" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="referencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cidadeExterior" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codPais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="retornoWS11Redesim">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codServico" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="versao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroProtocolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroOcorrencia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codEvento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="reciboSolicitacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="identificacaoSolicitacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="dadosCNPJ" type="s1:dadosCNPJ" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dadosCNPJ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cnpj" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeEmpresarial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indMatrizFilial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataAberturaEstabelecimento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataAberturaEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="situacaoCadastral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endereco" type="s1:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="objetoSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="naturezaJuridica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroOrgaoRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="capitalSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfRepresentante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeRepresentante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="qualificacaoRepresentante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="porte" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="opcaoSimplesNacional" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="opcaoSimei" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cnaePrincipal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="cnaeSecundaria" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="tipoUnidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="formaAtuacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="cnpjFilial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="ufFilial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="numeroRegistroFilial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cnpjMatriz" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ufMatriz" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroRegistroMatriz" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="dadosSocio" nillable="true" type="s1:dadosSocio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="endereco">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indOrigemEndereco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cep" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="uf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codMunicipio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codTipoLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="logradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="complementoLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="bairro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="distrito" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="referencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cidadeExterior" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codPais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dadosSocio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfCnpj" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="qualificacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataInclusao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="valorPartCapitalSocialString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="paisOrigem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfRepresentanteLegal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeRepresentanteLegal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="qualificacaoRepresentanteLegal" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://servicos.integrador.serpro.gov.br">
+      <s:complexType name="serviceResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="return" type="s2:retornoWS" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dadosRedesim" type="s2:redesim" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="retornoWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="statusEnvio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codigoRetorno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="descricaoRetorno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numIdentificacaoTransmissao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="redesim">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="convenio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cnpj" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="orgaoResponsavelDeferimento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numAtoOficio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codConvenioAtoOficio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numViabilidadeAssociada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="header" type="s2:header" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="fcpj" type="s2:fcpj" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="atividadeEconomica" type="s2:ativEcon" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="simplesNacional" type="s2:simplesNacional" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="socios" nillable="true" type="s2:socio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="header">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="controleAtoOficio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inCpfCnpjCertificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfCnpjCertificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="subjectCertificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="acCertificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataEmissaoCertificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataExpiracaoCertificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numSerieCertificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="extensao1Certificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="extensao2Certificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="extensao3Certificado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ufOrigem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codMunicOrigem" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="fcpj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="codEvento" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="dataEvento" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="tipoEvento" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inMatriz" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeEmpresarial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeFantasia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codNaturezaJuridica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codTipoOrgaoRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroRegistroCartorio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numeroDoCNPJOrgaoRegistro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="arquivamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="capitalSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cnpjEstabMatriz" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codEnteFederativo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeResponsavel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfResponsavel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codQualificResponsavel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomePreposto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfPreposto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endereco" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contato" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="caixaPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cepCaixaPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codPorteEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="cnpjSucessora" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codClassificCRCcontadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ufContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numSeqContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codTipoCRCcontadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataRegistroCRCcontadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="idContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="orgaoEmissorIdContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ufOrgaoEmissorIdContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataEmissaoIdContadorPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codClassificEmpresaContabil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ufCRCempresaContabil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="seqCRCempresaContabil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codTipoCRCempresaContabil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cnpjEmpresaContabil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeEmpresaContabil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inPermanencialivrosFiscais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inOpcaoLivrosEletronicos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inOpcaoDocumentosEletronicos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inProcessamentoEletronicoDados" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inUtilizacaoECF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codVinculoImovel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataValidadeInscricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nirf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeProprietarioRural" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inCpfCnpjProprietario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfCnpjProprietarioRural" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inscricaoEstadualAnteriorProdutorRural" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codLocalizacaoImovel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numIncraProprietario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inscricaoImobiliariaImovelRural" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="areaImovel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inAbrangenciaMunic" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codMotivoSituacaoCadastral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataDocumentoInaptidao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numDocumentoInaptidao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endResponsavel" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoResponsavel" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endPreposto" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoPreposto" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endContadorPf" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoContadorPf" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endProprietarioRuralPf" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoProprietarioRuralPf" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endEmpresaContabilComplementar" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoEmpresaContabilComplementar" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inCpfCnpjProprietarioCafir" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfCnpjProprietarioCafir" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codSitCadProprietarioComplementar" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codMotivoSitCadProprietarioComplementar" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="areaImovelComplementar" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nomeImovelComplementar" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endProprietarioComplementar" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoProprietarioComplementar" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="instrumentoJudicial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inOpcaoSimples" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="tipoEstatal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="inInscricaoMEI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nire246" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="motivoInexistenciaRegistro" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="endereco">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indOrigemEndereco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cep" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="uf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codMunicipio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codTipoLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="logradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="numLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="complementoLogradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="bairro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="distrito" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="referencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cidadeExterior" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codPais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="contato">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dddTelefone1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="telefone1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dddTelefone2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="telefone2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dddFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="correioEletronico" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ativEcon">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codCnaeFiscal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="codCnaeSecundaria" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="codFormaDeAtuacao" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codTipoUnidade" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="objetoSocial" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="simplesNacional">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indicadorSimplesNacional" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="periodoSimples" nillable="true" type="s2:periodo" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indicadorMei" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="periodoMei" nillable="true" type="s2:periodo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="periodo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataInclusao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataExclusao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="socio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indTipoContribuinte" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codEvento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataEvento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="indCnpjCpfSocio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cnpjCpfSocio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="socio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="percentualCapitalSocialSocio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="capitalSocialSocio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codQualificacaoSocio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codPais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nacionalidadeSocioPf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataInclusaoIncorreta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dataInclusaoCorreta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endSocio" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoSocio" type="s2:contato" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="representanteLegal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codQualificacaoRepresentanteLegal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cpfRepresentanteLegal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="endRepLegal" type="s2:endereco" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="contatoRepLegal" type="s2:contato" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultaEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaXMLReginSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaXMLRegin" />
+  </wsdl:message>
+  <wsdl:message name="ValidaXMLReginSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaXMLReginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicosConsultasSoap">
+    <wsdl:operation name="ConsultaEmpresa">
+      <wsdl:input message="tns:ConsultaEmpresaSoapIn" />
+      <wsdl:output message="tns:ConsultaEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaXMLRegin">
+      <wsdl:input message="tns:ValidaXMLReginSoapIn" />
+      <wsdl:output message="tns:ValidaXMLReginSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicosConsultasSoap" type="tns:ServicosConsultasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaEmpresa">
+      <soap:operation soapAction="http://tempuri.org/ConsultaEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaXMLRegin">
+      <soap:operation soapAction="http://tempuri.org/ValidaXMLRegin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicosConsultasSoap12" type="tns:ServicosConsultasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaXMLRegin">
+      <soap12:operation soapAction="http://tempuri.org/ValidaXMLRegin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicosConsultas">
+    <wsdl:port name="ServicosConsultasSoap" binding="tns:ServicosConsultasSoap">
+      <soap:address location="http://localhost:4200/WsRFBRegin/ServicosConsultas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicosConsultasSoap12" binding="tns:ServicosConsultasSoap12">
+      <soap12:address location="http://localhost:4200/WsRFBRegin/ServicosConsultas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+D:\Documentos Raul\TaxAssembliesProjetos\TaxAssembliesES 2005\psc.Ruc.Tablelas.DAL.dll
+D:\Documentos Raul\TaxAssembliesProjetos\TaxAssembliesES 2005\psc.Ruc.Tablelas.DAL.pdb
+D:\Documentos Raul\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csprojAssemblyReference.cache
+D:\Documentos Raul\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csproj.CoreCompileInputs.cache
+D:\Documentos Raul\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csproj.CopyComplete
+D:\Documentos Raul\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.dll
+D:\Documentos Raul\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.pdb
+D:\TaxAssembliesProjetos\TaxAssembliesES 2005\psc.Ruc.Tablelas.DAL.dll
+D:\TaxAssembliesProjetos\TaxAssembliesES 2005\psc.Ruc.Tablelas.DAL.pdb
+D:\SourcesProgramasRaul\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csprojAssemblyReference.cache
+D:\SourcesProgramasRaul\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csproj.CoreCompileInputs.cache
+D:\SourcesProgramasRaul\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csproj.CopyComplete
+D:\SourcesProgramasRaul\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.dll
+D:\SourcesProgramasRaul\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.pdb
+D:\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csproj.CoreCompileInputs.cache
+D:\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csproj.CopyComplete
+D:\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.dll
+D:\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.pdb
+D:\SourcesProgramas\SourceJUCEES 2005\psc.Ruc.Tablelas.DAL\obj\Debug\psc.Ruc.Tablelas.DAL.csprojAssemblyReference.cache
+D:\TaxAssembliesProjetos\TaxAssembliesES 2005\psc.Ruc.Tablelas.DAL.dll.config

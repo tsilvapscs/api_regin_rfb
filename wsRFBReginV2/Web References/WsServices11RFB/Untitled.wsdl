@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://servicos.integrador.serpro.gov.br/" name="Untitled" targetNamespace="http://servicos.integrador.serpro.gov.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://servicos.integrador.serpro.gov.br/" version="1.0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="consultaCNPJFault">
+        <xs:sequence>
+          <xs:element name="erro" type="tns:erro" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consultaCNPJRequest">
+        <xs:sequence>
+          <xs:element name="codServico">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="[F|S]{1}\d{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="versao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="6" />
+                <xs:pattern value="\d{6}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="usoRFB">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="64" />
+                <xs:pattern value="(AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO)(JC|CC|IE)[A-Za-z0-9]*" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroProtocolo">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="13" />
+                <xs:pattern value="[a-zA-Z]{3}\d{10}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroOcorrencia">
+            <xs:simpleType>
+              <xs:restriction base="xs:int">
+                <xs:totalDigits value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="codEvento">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="\d{3}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="3" name="cnpj">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="reciboSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="identificacaoSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consultaCNPJRequestWrapper">
+        <xs:sequence>
+          <xs:element ref="tns:consultaCNPJRequest" />
+        </xs:sequence>
+        <xs:attribute name="idTransmissao" type="tns:uuid" use="required" />
+      </xs:complexType>
+      <xs:complexType name="consultaCNPJResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="retornoWSRedesim" type="tns:retornoWSRedesim" />
+          <xs:element minOccurs="0" name="retornoWS11Redesim" type="tns:retornoWS11Redesim" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dadosCNPJ">
+        <xs:sequence>
+          <xs:element name="cnpj">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nomeEmpresarial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="4" />
+                <xs:maxLength value="150" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="indMatrizFilial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="1" />
+                <xs:pattern value="1|2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="dataAberturaEstabelecimento">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="[1-2][0-9][0-9][0-9](01|02|03|04|05|06|07|08|09|10|11|12)(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31)" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="dataAberturaEmpresa">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="[1-2][0-9][0-9][0-9](01|02|03|04|05|06|07|08|09|10|11|12)(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31)" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="situacaoCadastral">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="01|02|03|04|08" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="endereco" type="tns:endereco" />
+          <xs:element minOccurs="0" name="objetoSocial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="7000" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="naturezaJuridica">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="4" />
+                <xs:pattern value="\d{4}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroOrgaoRegistro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="25" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="capitalSocial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="14" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="cpfRepresentante">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="nomeRepresentante">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="qualificacaoRepresentante">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="\d{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="cpfPreposto">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="nomePreposto">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="porte">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="01|03|05" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="opcaoSimplesNacional">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="S|N" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="opcaoSimei">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="S|N" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="cnaePrincipal">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="7" />
+                <xs:pattern value="\d{7}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="99" name="cnaeSecundaria" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="7" />
+                <xs:pattern value="\d{7}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="13" name="tipoUnidade">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="00|01|02|03|04|05|06|07|08|09|10|11|12|13|14" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="8" name="formaAtuacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="01|02|03|04|05|06|07|08" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="99" name="cnpjFilial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="99" name="ufFilial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO|EX" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="99" name="numeroRegistroFilial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="25" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cnpjMatriz">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ufMatriz">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO|EX" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroRegistroMatriz">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="25" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="999" name="dadosSocio" nillable="true" type="tns:dadosSocio" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dadosSocio">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cpfCnpj">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="11" />
+                <xs:maxLength value="14" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nome">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="150" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="qualificacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="\d{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dataInclusao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="[1-2][0-9][0-9][0-9](01|02|03|04|05|06|07|08|09|10|11|12)(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31)" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="valorPartCapitalSocialString">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="14" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="paisOrigem">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="\d{3}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cpfRepresentanteLegal">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nomeRepresentanteLegal">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="qualificacaoRepresentanteLegal">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="\d{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retornoWS11Redesim">
+        <xs:sequence>
+          <xs:element name="codServico">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="[F|S]{1}\d{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="versao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="6" />
+                <xs:pattern value="\d{6}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroProtocolo">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="13" />
+                <xs:pattern value="[a-zA-Z]{3}\d{10}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numeroOcorrencia">
+            <xs:simpleType>
+              <xs:restriction base="xs:int">
+                <xs:totalDigits value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="codEvento">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="\d{3}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="reciboSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="identificacaoSolicitacao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element maxOccurs="3" name="dadosCNPJ" type="tns:dadosCNPJ" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="consultaCNPJFault" type="tns:consultaCNPJFault" />
+      <xs:element name="consultaCNPJRequest" type="tns:consultaCNPJRequest" />
+      <xs:element name="consultaCNPJRequestWrapper" type="tns:consultaCNPJRequestWrapper" />
+      <xs:element name="consultaCNPJResponse" type="tns:consultaCNPJResponse" />
+      <xs:simpleType name="NonEmptyString">
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1" />
+          <xs:pattern value=".*[^\s].*" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="contato">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dddTelefone1">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="4" />
+                <xs:pattern value="\d{4}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="telefone1">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="\d{8}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dddTelefone2">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="4" />
+                <xs:pattern value="\d{4}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="telefone2">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="\d{8}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dddFax">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="4" />
+                <xs:pattern value="\d{4}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="fax">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="\d{8}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="correioEletronico">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="115" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="endereco">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="indOrigemEndereco">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="1|2|3" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cep">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="\d{8}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="uf">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="2" />
+                <xs:pattern value="AC|AL|AM|AP|BA|CE|DF|ES|GO|MA|MG|MS|MT|PA|PB|PE|PI|PR|RJ|RN|RO|RR|RS|SC|SE|SP|TO|EX" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="codMunicipio">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="4" />
+                <xs:pattern value="\d{4}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="codTipoLogradouro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="6" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="logradouro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numLogradouro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="6" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="complementoLogradouro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="156" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="bairro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="50" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="distrito">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="50" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="referencia">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="150" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cidadeExterior">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="55" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="codPais">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="3" />
+                <xs:pattern value="\d{3}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="erro">
+        <xs:sequence>
+          <xs:element name="codigo" type="xs:string" />
+          <xs:element name="descricao" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incompatibilidade">
+        <xs:sequence>
+          <xs:element name="descricaoIncompatibilidade">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="300" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="orgao">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="150" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="infoValidacaoIE">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nire">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nire246">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numRegCartorio">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="16" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="dataRegistro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="8" />
+                <xs:pattern value="[1-2][0-9][0-9][0-9](01|02|03|04|05|06|07|08|09|10|11|12)(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31)" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nomeEmpresarial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="4" />
+                <xs:maxLength value="144" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cnpjOrgaoRegistro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cpfServidorRespDeferimento">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="resultadoValidacaoIE" type="tns:resultadoValidacao" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="infoValidacaoIN">
+        <xs:sequence>
+          <xs:element name="cnpj">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="cnpjOrgaoRegistro">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nire">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nire246">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="nomeEmpresarial">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="4" />
+                <xs:maxLength value="144" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numRegCartorio">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="16" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="infoValidacaoRFB">
+        <xs:sequence>
+          <xs:element name="resultadoValidacaoRFB" type="tns:resultadoValidacao" />
+          <xs:element minOccurs="0" name="nire">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="nire246">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="11" />
+                <xs:pattern value="\d{11}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="numRegCartorio">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="16" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="cnpj">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="14" />
+                <xs:pattern value="\d{14}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resultadoValidacao">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="20" name="incomps" nillable="true" type="tns:incompatibilidade" />
+          <xs:element name="resultado">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="01|02" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retornoWSRedesim">
+        <xs:sequence>
+          <xs:element name="statusEnvio" type="xs:string" />
+          <xs:element minOccurs="0" name="codigoRetorno">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="descricaoRetorno">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="298" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="uuid">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="consultaCNPJFault">
+    <wsdl:part name="fault" element="tns:consultaCNPJFault" />
+  </wsdl:message>
+  <wsdl:message name="consultaCNPJRequest">
+    <wsdl:part name="req" element="tns:consultaCNPJRequest" />
+  </wsdl:message>
+  <wsdl:message name="consultaCNPJResponse">
+    <wsdl:part name="resp" element="tns:consultaCNPJResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS11">
+    <wsdl:operation name="consultaCNPJ">
+      <wsdl:input message="tns:consultaCNPJRequest" />
+      <wsdl:output message="tns:consultaCNPJResponse" />
+      <wsdl:fault name="fault" message="tns:consultaCNPJFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS11HttpSoapBinding" type="tns:WS11">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="consultaCNPJ">
+      <soap:operation soapAction="/ws11-service0.serviceagent/WS11Endpoint0/consultaCNPJ" style="document" soapActionRequired="true" />
+      <wsdl:input>
+        <soap:body use="literal" parts="req" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="resp" />
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault use="literal" name="fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS11Service.serviceagent">
+    <wsdl:port name="WS11HttpSoap" binding="tns:WS11HttpSoapBinding">
+      <soap:address location="https://wwwc.webhom.serpro.gov.br:443/services/ws11/ws11" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
